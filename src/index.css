@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Brand: Samu AI — celeste + blancos */
+    --background: 210 100% 99%;
+    --foreground: 222.2 60% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 60% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 60% 10%;
+
+    --primary: 212 90% 55%; /* Celeste principal */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 60% 97%;
+    --secondary-foreground: 222.2 60% 20%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 46%;
+
+    --accent: 258 85% 72%; /* Lila sutil para acentos */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 212 90% 55%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 210 60% 98%;
+    --sidebar-foreground: 222 40% 20%;
+    --sidebar-primary: 212 90% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 40% 20%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 212 90% 55%;
+
+    /* Extras de diseño */
+    --primary-glow: 212 95% 64%;
+    --gradient-brand: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.25);
+  }
+
+  .dark {
+    --background: 222.2 84% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 212 95% 68%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 258 85% 72%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 212 95% 68%;
+    --sidebar-background: 222 50% 8%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 212 95% 68%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 222 40% 12%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 222 40% 12%;
+    --sidebar-ring: 212 95% 68%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-brand { background-image: var(--gradient-brand); }
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .hover-scale { @apply transition-transform duration-200 hover:scale-105; }
+  .story-link { @apply relative inline-block; }
+  .story-link::after { content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; transform: scaleX(0); transform-origin: bottom right; background-color: hsl(var(--primary)); transition: transform .3s; }
+  .story-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+}
